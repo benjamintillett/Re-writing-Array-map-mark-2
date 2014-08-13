@@ -12,9 +12,12 @@ describe Array do
 	let(:array_of_fixnums) { [1,2,3,4,5] }
 		it "should return a array of length 5 when passed an empty block" do 
 			expect(array_of_fixnums.map{}.length).to be 5  
-		end
-
+		end	
+		it "should return [nil,nil,nil,nil,nil] when passed an empty block" do 
+			expect(array_of_fixnums.map{}).to eq [nil,nil,nil,nil,nil]
+		end 
 	end
+
 
 
 end
