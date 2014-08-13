@@ -9,4 +9,10 @@ describe Array do
 			expect(empty_array.my_map{}).to be_an_instance_of(Array) 
 		end
 	end
+	context "An array of Fixnums [1,2,3,4,5]" do
+	let(:array_of_fixnums) { [1,2,3,4,5] }
+		it "should return a array of length 5 when passed an empty block" do 
+			expect(array_of_fixnums.my_map{}.length).to be 5  
+		end
+	end
 end
