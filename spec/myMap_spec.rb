@@ -23,6 +23,9 @@ describe Array do
 		it "should return [3,4,5,6,7] when map called with { |x| x + 2 } " do 
 			expect(array_of_fixnums.my_map{ |x| x + 2 }).to eq [3,4,5,6,7]
 		end
+		it "should return an enumerator if no block given" do 
+			expect(array_of_fixnums.my_map).to be_an_instance_of(Enumerator)
+		end
 
 	end
 
