@@ -6,7 +6,10 @@ describe Array do
 			expect(array_of_fixnums.select{}).to be_empty
 		end	
 		it "should return an array of the same length when select call with { true } " do 
-			expect(array_of_fixnums.select{true}.count).to be 5  
+			expect(array_of_fixnums.select{true}).to eq [1,2,3,4,5]
+		end
+		it "should return empty array when select call with { false } " do 
+			expect(array_of_fixnums.select{ false }).to eq []  
 		end
 	end
 end
