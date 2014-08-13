@@ -20,6 +20,9 @@ describe Array do
 		it "should return [1,2,3,4,5] when map called with { |x| x } " do 
 			expect(array_of_fixnums.my_map{ |x| x }).to eq [1,2,3,4,5]
 		end
+		it "should return [3,4,5,6,7] when map called with { |x| x + 2 } " do 
+			expect(array_of_fixnums.my_map{ |x| x + 2 }).to eq [3,4,5,6,7]
+		end
 
 	end
 
