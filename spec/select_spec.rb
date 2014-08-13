@@ -11,5 +11,8 @@ describe Array do
 		it "should return empty array when select call with { false } " do 
 			expect(array_of_fixnums.select{ false }).to eq []  
 		end
+		it "should return an enumerator if no block given" do 
+			expect(array_of_fixnums.select).to be_an_instance_of(Enumerator)
+		end
 	end
 end
