@@ -15,7 +15,10 @@ describe Array do
 			expect(array_of_fixnums.my_map{}.length).to be 5  
 		end
 		it "should return [nil,nil,nil,nil,nil] when when map call with an empty block" do 
-			expect(array_of_fixnums.map{}).to eq [nil,nil,nil,nil,nil]
+			expect(array_of_fixnums.my_map{}).to eq [nil,nil,nil,nil,nil]
+		end
+		it "should return [1,2,3,4,5] when map called with { |x| x } " do 
+			expect(array_of_fixnums.my_map{ |x| x }).to eq [1,2,3,4,5]
 		end
 
 	end
