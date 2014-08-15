@@ -12,3 +12,19 @@ puts "Heaviest rock is: #{max_rock}"
 # or with inject 
 
 puts "Heaviest rock is: #{rocks.inject { |max_rock, rock| rock > max_rock ? rock : max_rock }}"
+
+# now the recursive version 
+
+def rock_judger(rocks_arr)
+	if rocks_arr.length <= 2 
+		a = rocks_arr[0]
+		b = rocks_arr[-1]
+	else
+		a = rock_judger(rocks_arr.slice!(0,rocks_arr.length/2))
+		b = rock_judger(rocks_arr)
+	end
+	return a > b ? a : b 
+end
+
+puts rocks.join(', ')
+puts "Recursively heaviest rock is: #{rock_judger(rocks)}"
