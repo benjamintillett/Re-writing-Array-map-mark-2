@@ -1,18 +1,13 @@
 class Array 
 	def recursive_map(&block)
 		return to_enum(:recursive_map) unless block_given?
-		array = self.dup
-		r_help(array,block)
+		self.empty? ? [] : map_array(self.dup,block)
 	end
-	def r_help(array,block)
-		if array.length == 0 
-			[]
-		elsif array.length == 1 
+	def map_array(array,block)
+		if array.length == 1 
 			[block.call(array[0])]
 		else 
-			puts "-----"*10
-			puts array.inspect
-			[block.call(array.slice!(0))] + r_help(array,block)
+			[block.call(array.slice!(0))] + map_array(array,block)
 		end
 	end
 end
