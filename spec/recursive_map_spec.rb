@@ -8,6 +8,13 @@ describe Array do
 			expect(empty_array.recursive_map{}).to be_an_instance_of(Array) 
 		end
 	end
+	context "An array of Fixnums [1]" do
+		let(:array_length_1) { [1] }
+		it "should return [nil] when map call with an empty block" do 
+			expect(array_length_1.recursive_map{}).to eq [nil]  
+		end
+	end
+
 	context "An array of Fixnums [1,2,3,4,5]" do
 	let(:array_of_fixnums) { [1,2,3,4,5] }
 		it "should return a array of length 5 when map call with an empty block" do 
@@ -20,10 +27,10 @@ describe Array do
 			expect(array_of_fixnums.recursive_map{ |x| x }).to eq [1,2,3,4,5]
 		end
 		it "should return [3,4,5,6,7] when map called with { |x| x + 2 } " do 
-			expect(array_of_fixnums.map{ |x| x + 2 }).to eq [3,4,5,6,7]
+			expect(array_of_fixnums.recursive_map{ |x| x + 2 }).to eq [3,4,5,6,7]
 		end
 		it "should return an enumerator if no block given" do 
-			expect(array_of_fixnums.map).to be_an_instance_of(Enumerator)
+			expect(array_of_fixnums.recursive_map).to be_an_instance_of(Enumerator)
 		end
 	end
 
